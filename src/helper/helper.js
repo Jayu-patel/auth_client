@@ -1,5 +1,5 @@
 import axios from 'axios'
-axios.defaults.baseURL = process.env.SERVER_LINK
+axios.defaults.baseURL = process.env.SERVER
 import {jwtDecode} from 'jwt-decode'
 
 export const verifyUser=async(username)=>{
@@ -81,7 +81,7 @@ export const generateOTP=async(username)=>{
             const text = `Your password recovery OTP is ${code}, Please do not share otp anywhere else`
             const subject = `Password reccovery OTP`
 
-            await axios.post(`api/getMail`,{username, email, text, subject})
+            await axios.post(`/api/getMail`,{username, email, text, subject})
             return Promise.resolve(code)
         }
     }
