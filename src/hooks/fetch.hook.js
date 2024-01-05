@@ -18,7 +18,7 @@ export const useFetch=(query)=>{
 
                 const {username} = !query ? await getUserName() : ''
                 const {data, status} = !query ? 
-                await axios.get(`api/user/${username}`):
+                await axios.get(`/api/user/${username}`):
                 await axios.get(`/api/${query}`)
 
                 if(status === 201){
