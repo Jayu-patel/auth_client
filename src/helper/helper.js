@@ -1,5 +1,5 @@
 import axios from 'axios'
-axios.defaults.baseURL = `${process.env.LINK}`
+axios.defaults.baseURL = `https://auth-server-zeta.vercel.app`
 import {jwtDecode} from 'jwt-decode'
 
 export const verifyUser=async(username)=>{
