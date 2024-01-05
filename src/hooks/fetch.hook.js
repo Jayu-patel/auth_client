@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getUserName } from "../helper/helper";
-axios.defaults.baseURL = process.env.SERVER_LINK
+axios.defaults.baseURL = process.env.SERVER
 
 export const useFetch=(query)=>{
     const [getData, setData] = useState({
