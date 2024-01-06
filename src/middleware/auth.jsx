@@ -12,10 +12,6 @@ export const Authorization=({children})=>{
 
 export const UserProtect=({children})=>{
     const user = useSelector(state => state?.user?.username)
-    const token = localStorage.getItem('token')
-
-    console.log(user)
-
     if(!user){
         return <Navigate to={"/"} replace={true} ></Navigate>
     }
