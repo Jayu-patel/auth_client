@@ -5,8 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import convert from '../helper/convert'
 import { useFetch } from '../hooks/fetch.hook';
-import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../helper/helper';
+import Loading from './Loading';
 
 function Profile() {
   const[file, setFile] = useState()
@@ -52,9 +52,7 @@ function Profile() {
   }
 
   const submit=()=>{
-    const {firstName, lastName, email, mobile, address} = user
-    // console.log(firstName,lastName,email)
-    console.log(user)
+    const {firstName, lastName, email, mobile} = user
     if(firstName!="" && lastName!="" && email!=""){
       if(
         firstName.includes(' ') || 
@@ -82,7 +80,8 @@ function Profile() {
     localStorage.removeItem('token')
     navigate('/')
   }
-
+  if(isLoading) return <Loading/>
+  if(serverError) return <Error error={serverError}/>
   return (
     <div className="container mx-auto">
       <Toaster position='top-center' reverseOrder={false}></Toaster>

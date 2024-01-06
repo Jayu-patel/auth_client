@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../styles/Username.module.css';
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import { resetPass } from '../helper/helper';
 import { useSelector } from 'react-redux';

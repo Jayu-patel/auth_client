@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/Username.module.css';
 import avatar from '../assets/profile.png';
 import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
-import { generateOTP, getUser, verifyUser } from '../helper/helper';
-import { useDispatch, useSelector } from 'react-redux'
+import { verifyUser } from '../helper/helper';
+import { useDispatch } from 'react-redux'
 import { setUsername } from '../store/slices/user'
 
 function Username() {
-  const username = useSelector(state => state?.user?.username)
   const dispatch = useDispatch()
 
   const [user, setUser] = useState('')

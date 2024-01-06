@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getUserName } from "../helper/helper";
-axios.defaults.baseURL = `https://auth-server-zeta.vercel.app`
+axios.defaults.baseURL = 'http://localhost:8080'
 
 export const useFetch=(query)=>{
     const [getData, setData] = useState({
@@ -18,7 +18,7 @@ export const useFetch=(query)=>{
 
                 const {username} = !query ? await getUserName() : ''
                 const {data, status} = !query ? 
-                await axios.get(`/api/user/${username}`):
+                await axios.get(`api/user/${username}`):
                 await axios.get(`/api/${query}`)
 
                 if(status === 201){

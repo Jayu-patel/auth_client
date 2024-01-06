@@ -5,7 +5,7 @@
     backdrop-filter: blur(7.1px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     @apply border-4 border-gray-50 shrink-0 h-3/4 w-[35%] rounded-3xl py-10 px-7;
-    @apply size_II:w-[80vw] size_II:mt-[0px] md:min-w-max;
+    @apply size_II:w-[80vw] size_II:mt-[40px] md:min-w-max;
 }
 
 .profile_img{

@@ -3,9 +3,10 @@ import styles from '../styles/Username.module.css';
 import avatar from '../assets/profile.png';
 import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useFetch } from '../hooks/fetch.hook';
 import { login } from '../helper/helper';
+import Loading from './Loading';
 
 function Password() {
   const [pass, setPass] = useState('')
@@ -42,6 +43,8 @@ function Password() {
       })
     }
   }
+  if(isLoading) return <Loading/>
+  if(serverError) return <Error error={serverError}/>
   return (
     <div className="container mx-auto">
       <Toaster position='top-center' reverseOrder={false}></Toaster>

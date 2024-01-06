@@ -15,6 +15,8 @@ function Register() {
     profile: '',
   })
 
+  const navigate = useNavigate()
+
   let name,value
   const input=(e)=>{
     name = e.target.name
@@ -34,13 +36,16 @@ function Register() {
     if(username!="" && email!="" && password!=""){
       if(username.includes(' ') || email.includes(' ') || password.includes(' ')) return toast.error("spaces are invalid")
       else{
-        console.log(user)
         const registerPromise = register(user)
 
         toast.promise(registerPromise,{
           loading: "Creating...",
           success: <b>Register successfully...</b>,
           error: <b>Could not Register.</b>
+        })
+
+        registerPromise.then(()=>{
+          navigate('/')
         })
       }
     }
