@@ -1,6 +1,5 @@
 import axios from 'axios'
-// axios.defaults.baseURL = 'http://localhost:8080'
-axios.defaults.baseURL = 'http://localhost/8080'
+axios.defaults.baseURL = process.env.LINK
 import {jwtDecode} from 'jwt-decode'
 
 export const verifyUser=async(username)=>{
